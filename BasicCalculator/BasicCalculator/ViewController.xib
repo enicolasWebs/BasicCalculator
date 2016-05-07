@@ -245,17 +245,5 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="485" y="394"/>
         </view>
-        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RHc-5U-4R4">
-            <rect key="frame" x="0.0" y="0.0" width="57" height="57"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="39"/>
-            <state key="normal" title="1">
-                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-            </state>
-            <connections>
-                <action selector="click1" destination="-1" eventType="touchUpInside" id="6fO-Pw-1gu"/>
-            </connections>
-        </button>
     </objects>
 </document>
