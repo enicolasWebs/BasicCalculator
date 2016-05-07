@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-typedef enum enumCalcOperator
+typedef enum _CalcOperator
 {
     ADDITION = 0,
     SUBTRACTION,
@@ -19,11 +19,20 @@ typedef enum enumCalcOperator
     NONE
 } CalcOperator;
 
+typedef enum enumThemeColor
+{
+    PINK = 0,
+    BLUE,
+    GRAY,
+    BLACK
+} ThemeColor;
+
 @interface ViewController ()
 
-@property NSDecimalNumber* displayValue;
-@property NSDecimalNumber* value;
-@property NSDecimalNumber* repeatOperand;
+@property NSDecimalNumber *displayValue;
+@property NSDecimalNumber *value;
+@property NSDecimalNumber *repeatOperand;
+@property (strong, nonatomic) UIColor *themeColor;
 
 @end
 
@@ -47,6 +56,14 @@ typedef enum enumCalcOperator
     bFirstOperandEntered = NO;
     numPlaceAfterDecimal = -1;
     op = NONE;
+    
+    self.myPickerView.delegate = self;
+    self.myPickerView.dataSource = self;
+    
+    self.themeNames = @[@"Pink", @"Blue", @"Gray", @"Black"];
+    [self.myPickerView selectRow:([self.themeNames count] / 2) inComponent:0 animated:NO];
+
+    [self SetColorFromTheme: GRAY];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -358,6 +375,63 @@ typedef enum enumCalcOperator
     numPlaceAfterDecimal = -1;
     bCompletedCalculation = NO;
     self.repeatOperand = nil;
+}
+
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return [self.themeNames count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return self.themeNames[row];
+}
+
+
+ -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
+      inComponent:(NSInteger)component
+{
+    [self SetColorFromTheme:(ThemeColor)row];
+}
+
+-(void) SetColorFromTheme: (ThemeColor) color
+{
+    switch(color)
+    {
+        case PINK:
+        {
+            self.themeColor = [UIColor colorWithRed:224/255.0 green:130/255.0 blue:131/255.0 alpha:0.5];
+            break;
+        }
+        case BLUE:
+        {
+            self.themeColor = [UIColor colorWithRed:65/255.0 green:131/255.0 blue:215/255.0 alpha:0.5];
+            break;
+        }
+        case GRAY:
+        {
+            self.themeColor = [UIColor colorWithRed:189/255.0 green:195/255.0 blue:199/255.0 alpha:0.5];
+            break;
+        }
+        case BLACK:
+        {
+            self.themeColor = [UIColor colorWithRed:44/255.0 green:62/255.0 blue:80/255.0 alpha:0.5];
+            break;
+        }
+    }
+    
+    for(UIView* subView in self.view.subviews)
+    {
+        if([subView isKindOfClass:[UIPickerView class]])
+        {
+            continue;
+        }
+        
+        subView.backgroundColor = self.themeColor;
+    }
 }
 
 /*

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *display;
 
@@ -19,5 +19,8 @@
 -(IBAction) negateOpClick: (id) sender;
 
 -(IBAction) clearDisplay:(id)sender;
+
+@property (nonatomic, strong) IBOutlet UIPickerView *myPickerView;
+@property (nonatomic, strong) NSArray *themeNames;
 
 @end

@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A4C547821CDBC074008AC79B /* ButtonClick2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ButtonClick2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4C547821CDBC074008AC79B /* BasicCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C547851CDBC074008AC79B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4C547871CDBC074008AC79B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A4C547881CDBC074008AC79B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		A4C547551CDBBA2A008AC79B = {
 			isa = PBXGroup;
 			children = (
-				A4C547831CDBC074008AC79B /* ButtonClick2 */,
+				A4C547831CDBC074008AC79B /* BasicCalculator */,
 				A4C547671CDBC018008AC79B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,12 +48,12 @@
 		A4C547671CDBC018008AC79B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A4C547821CDBC074008AC79B /* ButtonClick2.app */,
+				A4C547821CDBC074008AC79B /* BasicCalculator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A4C547831CDBC074008AC79B /* ButtonClick2 */ = {
+		A4C547831CDBC074008AC79B /* BasicCalculator */ = {
 			isa = PBXGroup;
 			children = (
 				A4C547871CDBC074008AC79B /* AppDelegate.h */,
@@ -65,7 +65,7 @@
 				A4C547951CDBC074008AC79B /* Info.plist */,
 				A4C547841CDBC074008AC79B /* Supporting Files */,
 			);
-			path = ButtonClick2;
+			path = BasicCalculator;
 			sourceTree = "<group>";
 		};
 		A4C547841CDBC074008AC79B /* Supporting Files */ = {
@@ -79,9 +79,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A4C547811CDBC074008AC79B /* ButtonClick2 */ = {
+		A4C547811CDBC074008AC79B /* BasicCalculator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A4C547961CDBC074008AC79B /* Build configuration list for PBXNativeTarget "ButtonClick2" */;
+			buildConfigurationList = A4C547961CDBC074008AC79B /* Build configuration list for PBXNativeTarget "BasicCalculator" */;
 			buildPhases = (
 				A4C5477E1CDBC074008AC79B /* Sources */,
 				A4C5477F1CDBC074008AC79B /* Frameworks */,
@@ -91,9 +91,9 @@
 			);
 			dependencies = (
 			);
-			name = ButtonClick2;
-			productName = ButtonClick2;
-			productReference = A4C547821CDBC074008AC79B /* ButtonClick2.app */;
+			name = BasicCalculator;
+			productName = BasicCalculator;
+			productReference = A4C547821CDBC074008AC79B /* BasicCalculator.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -109,7 +109,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A4C547591CDBBA2A008AC79B /* Build configuration list for PBXProject "ButtonClick2" */;
+			buildConfigurationList = A4C547591CDBBA2A008AC79B /* Build configuration list for PBXProject "BasicCalculator" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -122,7 +122,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A4C547811CDBC074008AC79B /* ButtonClick2 */,
+				A4C547811CDBC074008AC79B /* BasicCalculator */,
 			);
 		};
 /* End PBXProject section */
@@ -205,12 +205,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = ButtonClick2/Info.plist;
+				INFOPLIST_FILE = BasicCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = ESoft.ButtonClick2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = ESoft.BasicCalculator;
+				PRODUCT_NAME = BasicCalculator;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -248,11 +248,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = ButtonClick2/Info.plist;
+				INFOPLIST_FILE = BasicCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = ESoft.ButtonClick2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = ESoft.BasicCalculator;
+				PRODUCT_NAME = BasicCalculator;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -262,7 +262,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A4C547591CDBBA2A008AC79B /* Build configuration list for PBXProject "ButtonClick2" */ = {
+		A4C547591CDBBA2A008AC79B /* Build configuration list for PBXProject "BasicCalculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A4C5475A1CDBBA2A008AC79B /* Debug */,
@@ -271,13 +271,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A4C547961CDBC074008AC79B /* Build configuration list for PBXNativeTarget "ButtonClick2" */ = {
+		A4C547961CDBC074008AC79B /* Build configuration list for PBXNativeTarget "BasicCalculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A4C547971CDBC074008AC79B /* Debug */,
 				A4C547981CDBC074008AC79B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
