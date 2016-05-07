@@ -14,6 +14,8 @@ typedef enum enumCalcOperator
     SUBTRACTION,
     DIVISION,
     MULTIPLICATION,
+    EQUALS,
+    PERCENTAGE,
     NONE
 } CalcOperator;
 
@@ -85,7 +87,7 @@ typedef enum enumCalcOperator
     else
     {
         numPlaceAfterDecimal++;
-        NSDecimalNumber* newDec = [[NSDecimalNumber alloc] initWithMantissa:[curDig longLongValue] exponent:(numPlaceAfterDecimal*-1) isNegative:false];
+        NSDecimalNumber* newDec = [[NSDecimalNumber alloc] initWithMantissa:[curDig longLongValue] exponent:(numPlaceAfterDecimal*-1) isNegative:([self.displayValue intValue] < 0)];
         
         self.displayValue = [self.displayValue decimalNumberByAdding:newDec];
     }
@@ -116,7 +118,6 @@ typedef enum enumCalcOperator
                 if(bNumberPressed == NO)
                 {
                     self.displayValue = [self.value copy];
-                    return;
                 }
                 else
                 {
@@ -211,23 +212,63 @@ typedef enum enumCalcOperator
             bCompletedCalculation = NO;
             break;
         }
-        case '=':
+        case '%':
         {
-            if(bNumberPressed == NO)
+            if(!bCompletedCalculation)
             {
-                if(self.repeatOperand == nil)
+                if(bNumberPressed == NO)
                 {
-                    self.displayValue = [self.value copy];
+                    if(self.repeatOperand == nil)
+                    {
+                        self.displayValue = [self.value copy];
+                    }
+                    else
+                    {
+                        self.displayValue = self.repeatOperand;
+                    }
                 }
-                else
-                {
-                    self.displayValue = self.repeatOperand;
-                }
+                
+                [self performCalculation];
+            }
+            else
+            {
+                self.value = self.displayValue;
+                bCompletedCalculation = NO;
+                self.repeatOperand = nil;
             }
             
-            [self performCalculation];
-            self.repeatOperand = self.displayValue;
+            op = PERCENTAGE;
+            self.value = [self.value decimalNumberByDividingBy:[[NSDecimalNumber alloc] initWithInt:100]];
+            
+            self.display.text = [[NSString alloc] initWithFormat:@"%@", self.value];
             self.displayValue = self.value;
+            
+            numPlaceAfterDecimal = -1;
+            bNumberPressed = NO;
+            bCompletedCalculation = YES;
+            break;
+        }
+        case '=':
+        {
+            if(op <= EQUALS)
+            {
+                if(bNumberPressed == NO)
+                {
+                    if(self.repeatOperand == nil)
+                    {
+                        self.displayValue = [self.value copy];
+                    }
+                    else
+                    {
+                        self.displayValue = self.repeatOperand;
+                    }
+                }
+                
+                [self performCalculation];
+                self.repeatOperand = self.displayValue;
+                self.displayValue = self.value;
+            }
+            
             numPlaceAfterDecimal = -1;
             bNumberPressed = NO;
             bCompletedCalculation = YES;
@@ -235,9 +276,10 @@ typedef enum enumCalcOperator
         }
         case '.':
         {
-            if([self.value doubleValue] != 0)
+            if(bNumberPressed == NO && [self.value doubleValue] != 0)
             {
                 self.displayValue = [[NSDecimalNumber alloc] initWithInt:0];
+                numPlaceAfterDecimal = -1;
             }
             
             if(numPlaceAfterDecimal == -1)
@@ -284,11 +326,38 @@ typedef enum enumCalcOperator
     
     self.display.text = [[NSString alloc] initWithFormat:@"%@", self.value];
 }
+- (IBAction)negateOpClick:(id)sender {
+
+    self.displayValue = [self.displayValue decimalNumberByMultiplyingBy:
+                         [NSDecimalNumber decimalNumberWithMantissa: 1
+                                            exponent: 0
+                                            isNegative: YES]];
+    
+    if(bCompletedCalculation == YES)
+    {
+        self.value = [self.displayValue copy];
+    }
+    
+    self.display.text = [[NSString alloc] initWithFormat:@"%@", self.displayValue];
+}
 
 - (void) resetDisplayValue
 {
     self.displayValue = [[NSDecimalNumber alloc] initWithInt:0];
     bNumberPressed = NO;
+}
+
+- (IBAction) clearDisplay:(id) sender
+{
+    self.displayValue = [[NSDecimalNumber alloc] initWithInt:0];
+    self.value = [[NSDecimalNumber alloc] initWithInt:0];
+    self.display.text = [[NSString alloc] initWithFormat:@"%@", self.displayValue];
+    bNumberPressed = NO;
+    op = NONE;
+    bFirstOperandEntered = NO;
+    numPlaceAfterDecimal = -1;
+    bCompletedCalculation = NO;
+    self.repeatOperand = nil;
 }
 
 /*

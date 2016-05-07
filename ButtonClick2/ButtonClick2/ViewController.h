@@ -16,4 +16,8 @@
 
 -(IBAction) symbolClick: (id) sender;
 
+-(IBAction) negateOpClick: (id) sender;
+
+-(IBAction) clearDisplay:(id)sender;
+
 @end
